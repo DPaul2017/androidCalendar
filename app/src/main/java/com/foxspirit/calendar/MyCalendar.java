@@ -4,7 +4,6 @@ import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -23,6 +22,7 @@ public class MyCalendar {
 
     private final TextView tv;
 
+    private int currentDate;
     private final ArrayList<Integer> dayOfTheWeek = new ArrayList<>();
     private final ArrayList<Integer> quantityOfDaysInMonth = new ArrayList<>();
     private final ArrayList<Integer> daysOffset = new ArrayList<>();
@@ -65,6 +65,12 @@ public class MyCalendar {
 
     public ArrayList<Integer> getDates() {
         return dates;
+    }
+
+    public void setDate(int date) {
+        currentDate = Calendar.getInstance().get(Calendar.DATE);
+        calendar.set(Calendar.DATE, date);
+        dateChange = date - currentDate;
     }
 
     public Integer setOffset(int dayOfTheWeek) {

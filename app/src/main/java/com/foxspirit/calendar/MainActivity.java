@@ -44,8 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calendarDisplayWeekDay.setOnClickListener(this);
         calendarGoToTodayButton.setOnClickListener(this);
         calendarGrid.setOnItemClickListener((parent, view, position, id) -> {
-            parent.getItemAtPosition(position);
+            Integer date = (Integer) parent.getItemAtPosition(position);
             String text = ((TextView) view).getText().toString();
+            mc.setDate(date);
+            mc.updateFields();
         });
 
         mc = new MyCalendar(calendarDisplayDate, calendarDisplayWeekDay, calendarDisplayMonth, calendarDisplayYear, calendarGrid, tv);
