@@ -52,9 +52,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mc = new MyCalendar(calendarDisplayDate, calendarDisplayWeekDay, calendarDisplayMonth, calendarDisplayYear, calendarGrid, tv);
         mc.updateFields();
-
-        tv.setText(mc.getQuantityOfDaysInMonth() + "\n" + mc.getDayOfTheWeek() + "\n" + mc.getDaysOffset());
-
     }
 
     @Override

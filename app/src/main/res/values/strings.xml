@@ -9,4 +9,5 @@
     <string name="sunday">SUN</string>
     <string name="next_day_button">Next Day</string>
     <string name="previous_day_button">Previous Day</string>
+    <string name="date_display_today_button">Go to today</string>
 </resources>
