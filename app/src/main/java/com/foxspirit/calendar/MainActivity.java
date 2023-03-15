@@ -61,8 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.date_display_today:
-                mc.getCalendar().add(Calendar.DATE, -mc.getDateChange());
-                mc.setDateChange(0);
+                mc.toToday();
                 mc.updateFields();
                 break;
             case R.id.calendar_prev_button:

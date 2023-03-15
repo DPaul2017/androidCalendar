@@ -18,14 +18,16 @@ public class MyCalendar {
     private static Calendar calendar;
 
     private final ArrayList<Integer> dates = new ArrayList<>();
-    private int dateChange = 0;
 
     private final TextView tv;
 
-    private int currentDate;
     private final ArrayList<Integer> dayOfTheWeek = new ArrayList<>();
     private final ArrayList<Integer> quantityOfDaysInMonth = new ArrayList<>();
     private final ArrayList<Integer> daysOffset = new ArrayList<>();
+
+    int currentDate;
+    int currentMonth;
+    int currentYear;
 
     public ArrayList<Integer> getDayOfTheWeek() {
         return dayOfTheWeek;
@@ -48,7 +50,6 @@ public class MyCalendar {
         calendar = new GregorianCalendar();
         this.tv = (TextView) tv;
 
-
         for (int i = 0; i < 12; i++) {
             calendar.set(Calendar.YEAR, i, 1);
             quantityOfDaysInMonth.add(calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
@@ -56,8 +57,11 @@ public class MyCalendar {
             daysOffset.add(setOffset(calendar.get(Calendar.DAY_OF_WEEK)));
         }
         calendar = Calendar.getInstance();
-    }
 
+        currentDate = Calendar.getInstance().get(Calendar.DATE);
+        currentMonth = Calendar.getInstance().get(Calendar.MONTH);
+        currentYear = Calendar.getInstance().get(Calendar.YEAR);
+    }
 
     public static Calendar getCalendar() {
         return calendar;
@@ -68,9 +72,7 @@ public class MyCalendar {
     }
 
     public void setDate(int date) {
-        currentDate = Calendar.getInstance().get(Calendar.DATE);
         calendar.set(Calendar.DATE, date);
-        dateChange = date - currentDate;
     }
 
     public Integer setOffset(int dayOfTheWeek) {
@@ -174,24 +176,18 @@ public class MyCalendar {
 
     public String getNextDate() {
         calendar.add(Calendar.DATE, 1);
-        setDateChange(++dateChange);
         updateFields();
         return getCurrentDate();
     }
 
     public String getPreviousDate() {
         calendar.add(Calendar.DATE, -1);
-        setDateChange(--dateChange);
         updateFields();
         return getCurrentDate();
     }
 
-    public void setDateChange(int dateChange) {
-        this.dateChange = dateChange;
-    }
-
-    public int getDateChange() {
-        return this.dateChange;
+    public void toToday() {
+        calendar.set(currentYear, currentMonth, currentDate);
     }
 
     public void updateFields() {
