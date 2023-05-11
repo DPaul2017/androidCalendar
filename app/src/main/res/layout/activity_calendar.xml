@@ -19,9 +19,9 @@
 
         <ImageView
             android:id="@+id/calendar_prev_button"
-            android:contentDescription="@string/previous_day_button"
             android:layout_width="70dp"
             android:layout_height="250dp"
+            android:contentDescription="@string/previous_day_button"
             android:src="@drawable/left_arrow" />
 
         <!-- date title -->
@@ -38,57 +38,70 @@
                 android:id="@+id/date_display_year"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2018"
                 android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance.Holo.Medium"
                 android:textSize="30sp"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+                tools:text="2018" />
 
             <TextView
                 android:id="@+id/date_display_month"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="January"
                 android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance.Holo.Medium"
                 android:textSize="25sp"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+                tools:text="January" />
 
             <TextView
                 android:id="@+id/date_display_date"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:gravity="center"
-                android:text="17"
                 android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="55sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="17" />
             <!-- date title -->
             <TextView
                 android:id="@+id/date_display_day"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Saturday"
                 android:textAppearance="@android:style/TextAppearance.Medium"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                tools:text="Saturday" />
 
-            <Button
-                android:id="@+id/date_display_today"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:padding="5dp"
-                android:text="@string/date_display_today_button"
-                android:textSize="15sp" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/date_display_today"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/background"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/date_display_today_button"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+            </RelativeLayout>
 
         </LinearLayout>
 
         <ImageView
             android:id="@+id/calendar_next_button"
-            android:contentDescription="@string/next_day_button"
             android:layout_width="70dp"
             android:layout_height="250dp"
+            android:contentDescription="@string/next_day_button"
             android:src="@drawable/right_arrow" />
     </LinearLayout>
 
@@ -164,28 +177,34 @@
         <GridView
             android:id="@+id/calendar_grid"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:contextClickable="true"
             android:numColumns="7"
             app:layout_constraintTop_toBottomOf="@+id/calendar_header" />
-        <!-- days view -->
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="20dp"
-        android:layout_marginTop="81dp"
-        android:layout_marginBottom="40dp"
-        android:gravity="center"
-        android:textAlignment="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendar"
-        app:layout_constraintVertical_bias="1" />
+        tools:layout_editor_absoluteX="20dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
